@@ -1,7 +1,7 @@
 # JsonObject
 
 JsonObject is a class witch provide some very simple way to access settings file(witch in xml format or json format).
-Just using simply string key to get/set setting value. And the key is support xml path format(split by /) or json format path(split by dot).
+Just using simply string key to get/set setting value. And the key is support xml path(split by /) or json path(split by dot).
 
 Installation:
   **Install-Package JsonObject**
@@ -23,12 +23,12 @@ setting["Cache.Level"] = 1;
 setting["Cache/Level"] = 1;
 ```
 # Get Value #
-There are two way to get one setting value:
+There are two ways to get one setting value:
 ``` c#
 //using dictionary key
 var level = settig["Cache.Level"]; //return object or null if the key do not exist
 //or GetValue<T>()
-var level = settig.GetValue<int>("Cache.Level");//return setting value of key in specific type of default(T) if the key do not exist
+var level = settig.GetValue<int>("Cache.Level");//return value of key in specific type of default(T) if the key do not exist
 ```
 # Save to settings file #
 ``` c#
@@ -48,6 +48,7 @@ setting.LoadFile("setting.xml");
 # Advance Topic #
 for xml attribute, add prefix '@' to the last key in xml path, such as:
 ``` c#
+var setting = new JsonObject();
 setting["appsetting.Cache.@Level"] = 1; 
 setting.SaveFile("setting.xml"); 
 ```
@@ -61,6 +62,7 @@ output:
 
 otherwise:
 ``` c#
+var setting = new JsonObject();
 setting["appsetting.Cache.Level"] = 1; 
 setting.SaveFile("setting.xml"); 
 ```

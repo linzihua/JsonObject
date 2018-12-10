@@ -30,7 +30,7 @@ var level = settig["Cache.Level"]; //return object or null if the key do not exi
 //or GetValue<T>()
 var level = settig.GetValue<int>("Cache.Level");//return value of key in specific type of default(T) if the key do not exist
 //or
-if(settig.TryGetValue<int>("Cache.Level", out int level))
+if(settig.TryGetValue("Cache.Level", out int level))
 {
 	...
 }
